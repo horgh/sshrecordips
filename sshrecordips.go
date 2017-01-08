@@ -17,8 +17,7 @@ import (
 	"regexp"
 	"time"
 
-	"summercat.com/iptables-manage/cidrlist"
-
+	"github.com/horgh/iptables-manage/cidrlist"
 	"github.com/hpcloud/tail"
 )
 
