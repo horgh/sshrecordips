@@ -61,9 +61,8 @@ func main() {
 		user := matches[1]
 		ip := matches[2]
 
-		comment := fmt.Sprintf("SSH: %s @ %s", user,
-			time.Now().Format(time.RFC1123))
-		err := cidrlist.RecordIP(args.CIDRFile, ip, comment)
+		comment := fmt.Sprintf("SSH: %s", user)
+		err := cidrlist.RecordIP(args.CIDRFile, ip, comment, time.Now())
 		if err != nil {
 			log.Fatalf("Unable to record IP: %s: User: %s: %s", ip, user, err)
 		}
