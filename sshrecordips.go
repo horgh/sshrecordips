@@ -61,7 +61,8 @@ func main() {
 		user := matches[1]
 		ip := matches[2]
 
-		comment := fmt.Sprintf("ssh: %s @ %s", user, time.Now().Format(time.RFC1123))
+		comment := fmt.Sprintf("SSH: %s @ %s", user,
+			time.Now().Format(time.RFC1123))
 		err := cidrlist.RecordIP(args.CIDRFile, ip, comment)
 		if err != nil {
 			log.Fatalf("Unable to record IP: %s: User: %s: %s", ip, user, err)
@@ -81,10 +82,10 @@ func getArgs() (Args, error) {
 	flag.Parse()
 
 	if len(*logFile) == 0 {
-		return Args{}, fmt.Errorf("You must specify a log file.")
+		return Args{}, fmt.Errorf("you must specify a log file")
 	}
 	if len(*cidrFile) == 0 {
-		return Args{}, fmt.Errorf("You must specify a CIDR IPs.")
+		return Args{}, fmt.Errorf("you must specify a CIDR IPs")
 	}
 
 	return Args{
